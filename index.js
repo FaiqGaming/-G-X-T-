@@ -877,4 +877,4 @@ function finish(bot, ops, dispatcher) {
 
 })
 
-bot.login(botconfig.token);
+bot.login(process.env.BOT_TOKEN);
