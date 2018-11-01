@@ -7,6 +7,11 @@ const queue = new Map();
 
 var servers = {};
 var prefix = '=';
+client.on('ready', async () => {
+  console.log("Im Ready"); 
+  client.user.setActivity("Say =help")
+})
+
 client.on("message", async message => {
     var args = message.content.substring(prefix.length).split(" ");
     if (!message.content.startsWith(prefix)) return;
