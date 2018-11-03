@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
-const youtube = new YouTube("AIzaSyBylQXp9Mx3i5JIERh8eMOVOr5qQjXqkHU");
+const youtube = new YouTube(process.env.SERVER_YOUTUBE);
 const queue = new Map();
 
 var servers = {};
@@ -102,6 +102,23 @@ __**Song queue:**__
 ${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}
 **Now playing:** ${serverQueue.songs[0].title}
 		`);
+break; 
+      case "help":
+       let pEmbed = new Discord.RichEmbed()
+       .setColor('RANDOM')
+       .addField('Music Help', "Play, Skip, Volume, Np, Queue, Stop, Resume, Pause, Stop, Uptime,");
+       message.channel.send(pEmbed)
+break;
+      case "uptime":
+    let days = Math.floor(client.uptime / 86400000);
+    let hours = Math.floor(client.uptime / 3600000) % 24;
+    let minutes = Math.floor(client.uptime / 60000) % 60;
+    let seconds = Math.floor(client.uptime / 1000) % 60;
+    const upembed = new Discord.RichEmbed()
+    .setColor(botconfig.orange)
+    .setTitle("TryHardMusic's Uptime")
+    .setDescription(`${days} Day ${hours} Hour ${minutes} Minute ${seconds} Second`)
+    message.channel.send(upembed)
 break;
       case "pause":
 		if (serverQueue && serverQueue.playing) {
