@@ -14,6 +14,8 @@ client.on('ready', async () => {
 
 client.on("message", async message => {
 	if(!message.content.startsWith(prefix)) return;
+        let messageArray = message.content.split(" ");
+        let args = message.content.slice(prefix.length).trim().split(' ');
         let sender = message.author;
     var args = message.content.substring(prefix.length).split(" ");
     if (!message.content.startsWith(prefix)) return;
