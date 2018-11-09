@@ -6,10 +6,10 @@ const youtube = new YouTube(process.env.SERVER_YOUTUBE);
 const queue = new Map();
 
 var servers = {};
-var prefix = '=';
+var prefix = 'yr,';
 client.on('ready', async () => {
   console.log("Im Ready"); 
-  client.user.setActivity("Say =help")
+  client.user.setActivity("Say yr,help")
 })
 
 client.on("message", async message => {
