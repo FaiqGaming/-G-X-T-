@@ -16,7 +16,7 @@ client.on("message", async message => {
 	if(!message.content.startsWith(prefix)) return;
         let messageArray = message.content.split(" ");
         let sender = message.author;
-    var args = message.content.substring(prefix.length).split(" ");
+    var args = message.content.substring(prefix.length).trim().split(" ");
     if (!message.content.startsWith(prefix)) return;
   var searchString = args.slice(1).join(' ');
 	var url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : '';
